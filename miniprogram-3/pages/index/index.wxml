@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="prize_container">
+  <view style="display:{{pirze_info}}">
+    <view class='rank_item' wx:key="*this"  wx:for="{{products}}">
+      <image class="prize_image" src="{{item['pro_image']}}" bindload="imageLoad"></image>
+      <text>{{item['pro_depict']}}</text>
+    </view>
+  </view>
+ <button bindtap="prize">点击抽奖</button>
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击登录 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
